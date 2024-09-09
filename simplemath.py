@@ -21,7 +21,7 @@ def gen_num(para: int, frn) -> int:
     enum = 0
     substr = ""
     while enum < para:
-        s = str(rng.randint(frn,11)) 
+        s = str(rng.randint(frn,10)) 
         substr += s
         enum += 1
     return int(substr)
