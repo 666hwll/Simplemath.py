@@ -49,11 +49,11 @@ def main():
         solution = eval(eq)
         inpt = input(">> ")
         if str(inpt) == str(solution):
-            print("Great! You are not retarded.")
+            print("Great! You are rock.")
         elif str(inpt) == 'X':
             print("Exiting...")
         else:
-            print(f"Wtf; its {solution}; are you retarded or smt?")
+            print(f"It is {solution}; try harder next time!")
 
 if __name__ == '__main__':
     main()
