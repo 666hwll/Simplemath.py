@@ -1,4 +1,4 @@
-# Dr Kawashima? My ASS!
+# Simplemath for training your brain 
 
 ## Compile on your machine:
 
