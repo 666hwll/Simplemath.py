@@ -26,8 +26,6 @@ def gen_num(para: int, frn) -> int:
         enum += 1
     return int(substr)
 
-def eva_lenght_of_eq():
-    pass
 
 def main():
     ptr = getmode()
@@ -49,7 +47,7 @@ def main():
         solution = eval(eq)
         inpt = input(">> ")
         if str(inpt) == str(solution):
-            print("Great! You are rock.")
+            print("Great! You rock.")
         elif str(inpt) == 'X':
             print("Exiting...")
         else:
