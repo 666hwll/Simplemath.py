@@ -13,7 +13,7 @@ def getmode() -> int:
     if inpt >= 0 and not inpt > 2:
         return new_modes[inpt]
     else:
-        print("WTF are you retarded?")
+        print("Something doesn't seem to work out...")
         exit()
         return 0
 
