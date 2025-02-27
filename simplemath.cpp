@@ -90,7 +90,7 @@ int main() {
         if(std::to_string(solution) == input){
             std::cout << "Great! You rock.";
         } else {
-            std::cout << "It is " << solution << "; try harder next time!\n";
+            std::cout << "\aIt is " << solution << "; try harder next time!\n";
             input = "X"; 
         }
         
