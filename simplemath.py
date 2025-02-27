@@ -15,7 +15,7 @@ def getmode() -> int:
     else:
         print("Something doesn't seem to work out...")
         exit()
-        return 0
+        return 19
 
 def gen_num(para: int, frn) -> int:
     enum = 0
