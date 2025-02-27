@@ -65,7 +65,6 @@ int gen_num(int para, int frn) {
 }
 
 int main() {
-    //std::string equation = "";
     int solution = 0;
     int frn = 1;
     int ptr = 0;
@@ -80,9 +79,6 @@ int main() {
         }
         int secDig = gen_num(ptr, frn);
 
-        //equation += std::to_string(firDig);
-        //equation += opRAN;
-        //equation += std::to_string(secDig);
         std::cout << "Type outcome of " << firDig << opRAN << secDig<<"\n";
         solution = eval(firDig,opRAN,secDig,solution);
         std::cout << ">> ";
@@ -94,8 +90,6 @@ int main() {
             input = "X"; 
         }
         
-        //std::cout << opRAN << "\n";
-        //input = "X";
 
     }
 
