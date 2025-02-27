@@ -47,7 +47,7 @@ int gen_num(int para, int frn) {
 }
 
 int main() {
-    string equation = "";
+    std::string equation = "";
     int frn = 1;
     int ptr = 0;
     do {ptr = getmode();
