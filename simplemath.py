@@ -33,13 +33,12 @@ def main():
     while inpt != 'X':
         firDig = gen_num(ptr, 0)
         opRAN = rng.choice(["+", "-", "*", "/"])
-        if opRAN != '/':
-            frn = 0
-        else:
+        if opRAN == '/':
             frn = 1
-        #secDig = rng.randint(frn,11) * ptr
+        else:
+            frn = 0
+
         secDig = gen_num(ptr, frn)
-        ####
         eq = str(firDig) + opRAN + str(secDig)
         print(f"Type in the outcome of {eq}")
         solution = eval(eq)

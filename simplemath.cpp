@@ -77,6 +77,8 @@ int main() {
         std::string opRAN = choice("+-*x/:");
         if(opRAN == "/") {
             frn = 1;
+        } else {
+            frn = 0;
         }
         int secDig = gen_num(ptr, frn);
 
