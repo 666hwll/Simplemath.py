@@ -31,8 +31,6 @@ def main():
     ptr = getmode()
     inpt = str
     while inpt != 'X':
-        ####
-        #firDig = rng.randint(0,11) * ptr
         firDig = gen_num(ptr, 0)
         opRAN = rng.choice(["+", "-", "*", "/"])
         if opRAN != '/':
@@ -48,10 +46,11 @@ def main():
         inpt = input(">> ")
         if str(inpt) == str(solution):
             print("Great! You rock.")
-        #elif str(inpt) == 'X':
-            #print("Exiting...")
+        elif str(inpt) == 'X':
+            print("Exiting...")
         else:
             print(f"It is {solution}; try harder next time!\nX to quit!\t")
+
 
 if __name__ == '__main__':
     main()

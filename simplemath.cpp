@@ -5,7 +5,7 @@
 int randint(int min, int max) {
     // Create a random number engine
     static std::random_device rd;
-    static std::mt19937 gen(rd());
+    static std::mt19937_64 gen(rd());
     
     // Create a distribution in the specified range
     std::uniform_int_distribution<> dis(min, max);
@@ -13,7 +13,7 @@ int randint(int min, int max) {
     return dis(gen);
 }
 
-std::string choice(std::string actualString) {
+std::string choice(const std::string actualString) {
     int lenOfString = actualString.length();
     int choiceAsIndex = randint(0, lenOfString - 1);
     return std::string(1,actualString[choiceAsIndex]);
@@ -28,12 +28,12 @@ int getmode() {
         return new_modes[inpt];
     } else {
         std::cout << "Something doesn't seem to work out...";
-        return 19;
+        return 8;
     }
 
 }
 
-int eval(int x, std::string y, int z, int a) {
+int eval(int x, const std::string y, int z, int a) {
 	if ("+" == y) { // add
 		a = x + z;
 	}
@@ -56,7 +56,7 @@ int gen_num(int para, int frn) {
     std::string substr = "";
     while(counter < para) {
         std::string s = "";
-        int random_num = randint(frn, 10);
+        int random_num = randint(frn, 10); // 10 is better than 9 for the easiest mode, but not exclusively
         substr += std::to_string(random_num);
         counter++;
     }
@@ -65,11 +65,12 @@ int gen_num(int para, int frn) {
 }
 
 int main() {
-    int solution = 0;
-    int frn = 1;
     int ptr = 0;
+    int frn = 0;
+    int solution = 0;
+    
     do {ptr = getmode();
-    } while(ptr == 19);
+    } while(ptr == 8);
     std::string input = "";
     while(input != "X") {
         int firDig = gen_num(ptr, 0);
@@ -85,9 +86,10 @@ int main() {
         std::cin >> input;
         if(std::to_string(solution) == input){
             std::cout << "Great! You rock.";
+        } else if("X" == input) {
+            std::cout << "Exiting...";
         } else {
-            std::cout << "\aIt is " << solution << "; try harder next time!\n";
-            input = "X"; 
+            std::cout << "\aIt is " << solution << "; try harder next time! 'X' to quit ...\n"; 
         }
         
 
