@@ -15,7 +15,7 @@ jobs:
     - name: Install prerequisites
       run: sudo apt-get update && sudo apt-get install -y build-essential clang make
     - name: Build project
-      run: make build
+      run: cd Simplemath.py && make build
     - uses: actions/upload-artifact@v4
       with:
         name: simplemath
