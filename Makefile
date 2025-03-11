@@ -1,2 +1,2 @@
 build:
-  clang simplemath.cpp -o simplemath
+  clang++ simplemath.cpp -o simplemath
