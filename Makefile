@@ -1,13 +1,10 @@
 CC = clang++
 CFLAGS = -Wall -Wextra -std=c++17
-TARGET = simplemath
 
-build: $(TARGET)
-
-$(TARGET):
-  $(CC) $(CFLAGS) simplemath.cpp -o $@
+build: 
+  $(CC) $(CFLAGS) simplemath.cpp -o simplemath
 
 clean:
-  rm -f $(TARGET)
+  rm -f simplemath
 
 .PHONY: clean
