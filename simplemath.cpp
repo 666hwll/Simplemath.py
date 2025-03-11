@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <random>
+#include "local_strings.hpp"
 
 int randint(int min, int max) {
     // Create a random number engine
@@ -22,12 +23,12 @@ std::string choice(const std::string actualString) {
 int getmode() {
     int inpt = 0;
     int new_modes[3] = {1, 2, 3}; 
-    std::cout << "How hard should the equations be?\n [0/1/2]\t";
+    std::cout << languages[LANG_EN_EN][STRING_LEVEL] << "[0/1/2]\t"; // string level
     std::cin >> inpt;
     if(inpt >= 0 && inpt <= 2) {
         return new_modes[inpt];
     } else {
-        std::cout << "Something doesn't seem to work out...";
+        std::cerr << languages[LANG_EN_EN][STRING_ERROR]; // string for error 
         return 8;
     }
 
@@ -82,16 +83,16 @@ int main() {
         }
         int secDig = gen_num(ptr, frn);
 
-        std::cout << "Type outcome of " << firDig << opRAN << secDig<<"\n";
+        std::cout << languages[LANG_EN_EN][STRING_RETRIEVING] << firDig << opRAN << secDig<<"\n"; // string for retrieving
         solution = eval(firDig,opRAN,secDig,solution);
         std::cout << ">> ";
         std::cin >> input;
         if(std::to_string(solution) == input){
-            std::cout << "Great! You rock.";
+            std::cout << languages[LANG_EN_EN][STRING_POSITIVFEEDBACK]; // string for positiv feedback
         } else if("X" == input) {
-            std::cout << "Exiting...";
+            std::cout << languages[LANG_EN_EN][STRING_BEFOREEXIT]; // string before exit
         } else {
-            std::cout << "\aIt is " << solution << "; try harder next time! 'X' to quit ...\n"; 
+            std::cout << languages[LANG_EN_EN][STRING_TRYHARD1] << solution << languages[LANG_EN_EN][STRING_TRYHARD2]; // string tryhard 
         }
         
 
