@@ -5,9 +5,9 @@ TARGET = simplemath
 build: $(TARGET)
 
 $(TARGET):
-    $(CC) $(CFLAGS) simplemath.cpp -o $@
+  $(CC) $(CFLAGS) simplemath.cpp -o $@
 
 clean:
-    rm -f $(TARGET)
+  rm -f $(TARGET)
 
 .PHONY: clean
