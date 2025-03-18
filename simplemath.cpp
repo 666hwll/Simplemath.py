@@ -1,7 +1,12 @@
-#include <iostream>
-#include <string>
+
+//#include <string>
 #include <random>
 #include "local_strings.hpp"
+
+struct {
+    std::string language = "de";
+} Programmvalues;
+
 
 int randint(int min, int max) {
     // Create a random number engine
@@ -23,12 +28,12 @@ std::string choice(const std::string actualString) {
 int getmode() {
     int inpt = 0;
     int new_modes[3] = {1, 2, 3}; 
-    std::cout << languages[LANG_EN_EN][STRING_LEVEL] << "[0/1/2]\t"; // string level
+    std::cout << localization::getTranslation("STRING_LEVEL",Programmvalues.language) << "[0/1/2]\t"; // string level
     std::cin >> inpt;
     if(inpt >= 0 && inpt <= 2) {
         return new_modes[inpt];
     } else {
-        std::cerr << languages[LANG_EN_EN][STRING_ERROR]; // string for error 
+        std::cerr << localization::getTranslation("STRING_ERROR", Programmvalues.language); // string for error 
         return 8;
     }
 
@@ -83,16 +88,16 @@ int main() {
         }
         int secDig = gen_num(ptr, frn);
 
-        std::cout << languages[LANG_EN_EN][STRING_RETRIEVING] << firDig << opRAN << secDig<<"\n"; // string for retrieving
+        std::cout << localization::getTranslation("STRING_RETRIEVING", Programmvalues.language) << firDig << opRAN << secDig<<"\n"; // string for retrieving
         solution = eval(firDig,opRAN,secDig,solution);
         std::cout << ">> ";
         std::cin >> input;
         if(std::to_string(solution) == input){
-            std::cout << languages[LANG_EN_EN][STRING_POSITIVFEEDBACK]; // string for positiv feedback
+            std::cout << localization::getTranslation("STRING_POSITIVFEEDBACK", Programmvalues.language); // string for positiv feedback
         } else if("X" == input) {
-            std::cout << languages[LANG_EN_EN][STRING_BEFOREEXIT]; // string before exit
+            std::cout << localization::getTranslation("STRING_BEFOREEXIT", Programmvalues.language); // string before exit
         } else {
-            std::cout << languages[LANG_EN_EN][STRING_TRYHARD1] << solution << languages[LANG_EN_EN][STRING_TRYHARD2]; // string tryhard 
+            std::cout << localization::getTranslation("STRING_TRYHARD1", Programmvalues.language) << solution << localization::getTranslation("STRING_TRYHARD2", Programmvalues.language); // string tryhard 
         }
         
 
