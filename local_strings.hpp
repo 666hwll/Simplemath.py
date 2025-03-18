@@ -1,10 +1,43 @@
 #include <iostream>
 #include <map>
 #include <string>
+#include <locale>
+
 
 #ifndef LOCAL_STRINGS_HPP
 #define LOCAL_STRINGS_HPP
-                                                     
+
+#ifdef _WIN32
+    #include <windows.h>
+    std::string getSystemLanguage() {
+         // Windows-spezifische Implementierung
+         LANGID langID = GetUserDefaultUILanguage();
+         switch (langID) {
+             case 0x0407: return "de"; // Deutsch
+             case 0x0409: return "en"; // Englisch
+             // Weitere Sprachcodes hinzufügen
+             default: return "unknown";
+         }
+    }
+#elif __linux__
+    std::string getSystemLanguage() {
+        std::locale loc("");
+        std::string localeName = loc.name();
+            // Extrahieren des Sprachcodes vor dem Trennzeichen
+        std::string languageCode = localeName.substr(0, localeName.find('_'));
+        return languageCode;
+    }
+#elif defined(__unix__)
+    std::string getSystemLanguage() {
+        std::locale loc("");
+        std::string localeName = loc.name();
+            // Extrahieren des Sprachcodes vor dem Trennzeichen
+        std::string languageCode = localeName.substr(0, localeName.find('_'));
+        return languageCode;
+    }
+#else
+    return "unknown";
+#endif
 
 std::map<std::string, std::map<std::string, std::string>> translations = {
     {"STRING_LEVEL", {
@@ -37,6 +70,11 @@ std::map<std::string, std::map<std::string, std::string>> translations = {
     }}
 };
 namespace localization {
+    std::string determineSystemLanguage() {
+        std::string language = getSystemLanguage();
+        return (language == "unknown") ? "en" : language;
+    }
+    
 
     // Funktion zum Abrufen der Übersetzung
     std::string getTranslation(const std::string& key, const std::string& language) {

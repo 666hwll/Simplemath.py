@@ -1,10 +1,8 @@
-
-//#include <string>
 #include <random>
 #include "local_strings.hpp"
 
 struct {
-    std::string language = "de";
+    std::string language = localization::determineSystemLanguage();
 } Programmvalues;
 
 
