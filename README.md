@@ -8,6 +8,5 @@ curl https://raw.githubusercontent.com/666hwll/Simplemath.py/main/simplemath.py 
 ```
 
 ## How to differentiate the python from the c++ version:
-  -> python builds will be always be called simplemath
+  -> python builds will have less features
   
-  -> c++ build have the first letter capitalized (from now on atleast) 
